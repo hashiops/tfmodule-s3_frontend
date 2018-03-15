@@ -1,11 +1,10 @@
-resource "aws_s3_bucket" "dev_sche-mcc_info" {
-  bucket = "dev.sche-mcc.info"
-  acl    = "public-read"
+module "registry-staticsite" {
+  source = "github.com/justincampbell/terraform-aws-staticsite"
 
-  website {
-    index_document = "index.html"
-    error_document = "error.html"
-  }
+  region = "${var.region}"
+  error_document = "error.html"
+  bucket = "dev.sche-mcc.info"
+
 }
 
 resource "aws_route53_record" "dev_sche-mcc_info" {
@@ -13,5 +12,5 @@ resource "aws_route53_record" "dev_sche-mcc_info" {
   name    = "dev.sche-mcc.info"
   type    = "CNAME"
   ttl     = 300
-  records = ["${aws_s3_bucket.dev_sche-mcc_info.website_endpoint}"]
+  records = ["${module.registry-staticsite.website_endpoint}"]
 }
