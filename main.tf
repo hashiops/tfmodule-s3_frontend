@@ -7,6 +7,8 @@ module "registry-staticsite" {
 
 }
 
+
+
 resource "aws_route53_record" "dev_sche-mcc_info" {
   zone_id = "Z11BKUNQC0LRJB"
   name    = "dev.sche-mcc.info"
