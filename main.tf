@@ -3,7 +3,7 @@ module "registry-staticsite" {
 
   region = "${var.region}"
   error_document = "error.html"
-  bucket = "dev.sche-mcc.info"
+  bucket = "${var.name}"
   domain = ""
 
 }
@@ -11,8 +11,8 @@ module "registry-staticsite" {
 
 
 resource "aws_route53_record" "dev_sche-mcc_info" {
-  zone_id = "Z11BKUNQC0LRJB"
-  name    = "dev.sche-mcc.info"
+  zone_id = "${var.route53_zone_id}"
+  name    = "${var.name}"
   type    = "CNAME"
   ttl     = 300
   records = ["${module.registry-staticsite.website_endpoint}"]
