@@ -4,6 +4,7 @@ module "registry-staticsite" {
   region = "${var.region}"
   error_document = "error.html"
   bucket = "dev.sche-mcc.info"
+  domain = ""
 
 }
 
