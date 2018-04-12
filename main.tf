@@ -6,5 +6,6 @@ module "cloudfront-s3-cdn" {
   namespace = "${var.namespace}"
 
   acm_certificate_arn = "${var.cloudfront_cert_arn}"
+  aliases = "${var.aliases}"
 
 }
