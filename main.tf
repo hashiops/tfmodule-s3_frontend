@@ -1,19 +1,10 @@
-module "registry-staticsite" {
-  source = "github.com/justincampbell/terraform-aws-staticsite"
+module "cloudfront-s3-cdn" {
+  source  = "github.com/cloudposse/terraform-aws-cloudfront-s3-cdn"
 
-  region = "${var.region}"
-  error_document = "error.html"
-  bucket = "${var.name}"
-  domain = ""
+  name = "${var.name}"
+  stage = "${var.stage}"
+  namespace = "${var.namespace}"
 
-}
+  acm_certificate_arn = "${var.cloudfront_cert_arn}"
 
-
-
-resource "aws_route53_record" "dev_sche-mcc_info" {
-  zone_id = "${var.route53_zone_id}"
-  name    = "${var.name}"
-  type    = "CNAME"
-  ttl     = 300
-  records = ["${module.registry-staticsite.website_endpoint}"]
 }
