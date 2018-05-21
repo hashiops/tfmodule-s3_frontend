@@ -8,4 +8,6 @@ module "cloudfront-s3-cdn" {
   acm_certificate_arn = "${var.cloudfront_cert_arn}"
   aliases = "${var.aliases}"
   parent_zone_id = "${var.zone_id}"
+
+  default_root_object = "${var.default_root_object}"
 }
