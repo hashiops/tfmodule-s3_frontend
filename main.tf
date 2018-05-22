@@ -1,5 +1,5 @@
 module "cloudfront-s3-cdn" {
-  source  = "github.com/cloudposse/terraform-aws-cloudfront-s3-cdn"
+  source  = "github.com/hashiops/terraform-aws-cloudfront-s3-cdn"
 
   name = "${var.name}"
   stage = "${var.stage}"
@@ -10,4 +10,6 @@ module "cloudfront-s3-cdn" {
   parent_zone_id = "${var.zone_id}"
 
   default_root_object = "${var.default_root_object}"
+
+  whitelist = "${var.whitelist}"
 }
