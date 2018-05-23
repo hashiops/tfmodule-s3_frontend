@@ -7,6 +7,3 @@ variable "zone_id" {}
 variable "default_root_object" {
   default = "index.html"
 }
-variable "whitelist" {
-  type = "list"
-}
