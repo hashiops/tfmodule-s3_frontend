@@ -12,4 +12,6 @@ module "cloudfront-s3-cdn" {
   parent_zone_id = "${var.zone_id}"
 
   default_root_object = "${var.default_root_object}"
+
+  cors_allowed_origins = ["*"]
 }
