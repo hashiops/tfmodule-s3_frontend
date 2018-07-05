@@ -7,5 +7,5 @@ output "s3_bucket_id" {
 }
 
 output "s3_bucket_domain_name" {
-  value = "${module.cloudfront-s3-cdn.bucket_domain_name}"
+  value = "${module.cloudfront-s3-cdn.s3_bucket_domain_name}"
 }
